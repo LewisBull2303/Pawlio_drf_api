@@ -1,6 +1,7 @@
 from django.db.models import Count
 from rest_framework import generics, filter
 from drf_api.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Profile
 from .serializers import ProfileSerializer
 
@@ -17,7 +18,11 @@ class ProfileList(generics.ListAPIView):
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
     filter_backends = [
-        filter.OrderingFilter
+        filter.OrderingFilter,
+        DjangoFilterBackend
+    ]
+    filterset_fields = [
+        'owner__following__followed__profile',
     ]
     ordering_fields = [
         'post_count',
