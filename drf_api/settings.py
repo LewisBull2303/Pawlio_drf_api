@@ -66,7 +66,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'pawlio_arf_api.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'pawlio-drf-api-3e0c60a339b8.herokuapp.com']
 
 
 # Application definition
