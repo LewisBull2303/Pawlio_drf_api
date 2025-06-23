@@ -53,6 +53,8 @@ JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
+CORS_ORIGIN_ALLOW_ALL = True   
+
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
 }
