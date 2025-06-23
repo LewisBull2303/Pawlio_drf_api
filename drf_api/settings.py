@@ -117,6 +117,8 @@ CORS_ALLOWED_ORIGINS = [
    ] if origin
  ]
 
+print(CORS_ALLOWED_ORIGINS)
+
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'drf_api.urls'
