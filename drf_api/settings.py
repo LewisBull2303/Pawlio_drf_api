@@ -21,6 +21,8 @@ CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
 
+# standard Django folder to store media files like images
+MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -70,7 +72,6 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', os.environ.get('ALLOWED_HOST')]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -118,8 +119,6 @@ CORS_ALLOWED_ORIGINS = [
      os.environ.get('CLIENT_ORIGIN_DEV')
    ] if origin
  ]
-
-print(CORS_ALLOWED_ORIGINS)
 
 CORS_ALLOW_CREDENTIALS = True
 
