@@ -1,6 +1,5 @@
 from django.db.models import Count
-from rest_framework import generics, filters, status
-from rest_framework.response import Response
+from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Profile
@@ -39,17 +38,10 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
     Retrieve or update a profile if you're the owner.
     """
-    serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
         followers_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')
-
-    def delete(self, request, pk):
-        user = self.request.user
-        user.delete()
-        return Response(
-            status=status.HTTP_204_NO_CONTENT
-        )
+    serializer_class = ProfileSerializer
