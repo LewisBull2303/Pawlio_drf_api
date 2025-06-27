@@ -1,6 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, filters, status
-from rest_framework import Response
+from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Profile
