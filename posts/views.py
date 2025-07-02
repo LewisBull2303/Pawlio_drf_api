@@ -16,21 +16,23 @@ class PostList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
-        DjangoFilterBackend
+        DjangoFilterBackend,
     ]
-    filterset_fields = [
-        'owner__followed__owner__profile',
-        'likes__owner__profile',
-        'owner__profile'
+    ordering_fields = [
+        'comments_number',
+        'likes_number',
+        'likes__created_on',
     ]
     search_fields = [
         'owner__username',
         'title',
+        'category'
     ]
-    ordering_fields = [
-        'likes_count',
-        'comments_count',
-        'likes__created_at'
+    filterset_fields = [
+        'owner__followed__owner__profile',
+        'likes__owner__profile', 
+        'owner__profile',
+        'category'
     ]
 
     def perform_create(self, serializer):
@@ -41,6 +43,6 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(
-        likes_count=Count('likes', distinct=True),
-        comments_count=Count('comment', distinct=True)
+        comments_count=Count('comment', distinct=True),
+        likes_count=Count('likes', distinct=True)
     ).order_by('-created_at')
