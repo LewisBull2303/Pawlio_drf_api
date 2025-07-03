@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     category_choices = [
+        ('Dog', 'Dog'),
         ('Puppy', 'Puppy'),
         ('Senior Dog', 'Senior Dog'),
         ('Nature', 'Nature'),
@@ -23,8 +24,8 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
-    category = models.CharField(max_length=50, choices=category_choices)
+    content = models.TextField(blank=True)
+    category = models.CharField(max_length=50, choices=category_choices, default='Dog')
     image = models.ImageField(
         upload_to='images/',
         default='../default_post_umaui6',
