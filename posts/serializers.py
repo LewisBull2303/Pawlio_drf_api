@@ -44,6 +44,19 @@ class PostSerializer(serializers.ModelSerializer):
             ).first()
             return like.id if like else None
         return None
+    
+    def create(self, validated_data):
+        request = self.context.get('request')
+        validated_data['owner'] = request.user
+
+        image = validated_data.pop('image', None)
+        post = Post.objects.create(**validated_data)
+
+        if image:
+            post.image = image
+            post.save()
+
+        return post
 
     class Meta:
         model = Post
