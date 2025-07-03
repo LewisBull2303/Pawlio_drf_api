@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from posts.models import Post
+from .models import Post
 from likes.models import Like
 
 
@@ -9,20 +9,27 @@ class PostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     like_id = serializers.SerializerMethodField()
-    likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    likes_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
-        try:
-            if value.size > 2 * 1024 * 1024:
-                raise serializers.ValidationError('Image size larger than 2MB!')
-            if value.image.height > 4096:
-                raise serializers.ValidationError('Image height larger than 4096px!')
-            if value.image.width > 4096:
-                raise serializers.ValidationError('Image width larger than 4096px!')
-        except Exception as e:
-            print("Image validation error:", e)
-            raise serializers.ValidationError("Invalid image file.")
+        # Image height limit of 4096 px
+        if value.image.height > 4096:
+            raise serializers.ValidationError(
+                'Your image exceeds the height limit of 4096px.'
+            )
+
+        # Image width limit of 4096 px
+        if value.image.width > 4096:
+            raise serializers.ValidationError(
+                'Your image exceeds the width limit of 4096px.'
+            )
+
+        # Image size limit of 2 megabytes
+        if value.size > 1024 * 1024 * 2:
+            raise serializers.ValidationError(
+                'Your image is too large. Max size is 2MB.'
+            )
         return value
 
     def get_is_owner(self, obj):
@@ -41,8 +48,18 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = [
-            'id', 'owner', 'is_owner', 'profile_id',
-            'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image', 'category',
-            'like_id', 'likes_count', 'comments_count',
+            'id',
+            'owner',
+            'is_owner',
+            'profile_id',
+            'profile_image',
+            'created_at',
+            'updated_at',
+            'title',
+            'description',
+            'category',
+            'image',
+            'like_id',
+            'comments_count',
+            'likes_count',
         ]

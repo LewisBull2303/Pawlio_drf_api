@@ -22,12 +22,14 @@ class Post(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    title = models.CharField(max_length=255)
-    content = models.TextField(blank=True)
-    image = models.ImageField(
-        upload_to='images/', default='default_post_wbup9c', blank=True
-    )
+    title = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
     category = models.CharField(max_length=50, choices=category_choices)
+    image = models.ImageField(
+        upload_to='images/',
+        default='../default_post_umaui6',
+        blank=True
+    )
 
     class Meta:
         ordering = ['-created_at']
