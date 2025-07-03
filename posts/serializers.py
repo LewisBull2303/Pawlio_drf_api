@@ -13,16 +13,16 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
-        if value.size > 2 * 1024 * 1024:
-            raise serializers.ValidationError('Image size larger than 2MB!')
-        if value.image.height > 4096:
-            raise serializers.ValidationError(
-                'Image height larger than 4096px!'
-            )
-        if value.image.width > 4096:
-            raise serializers.ValidationError(
-                'Image width larger than 4096px!'
-            )
+        try:
+            if value.size > 2 * 1024 * 1024:
+                raise serializers.ValidationError('Image size larger than 2MB!')
+            if value.image.height > 4096:
+                raise serializers.ValidationError('Image height larger than 4096px!')
+            if value.image.width > 4096:
+                raise serializers.ValidationError('Image width larger than 4096px!')
+        except Exception as e:
+            print("Image validation error:", e)
+            raise serializers.ValidationError("Invalid image file.")
         return value
 
     def get_is_owner(self, obj):
