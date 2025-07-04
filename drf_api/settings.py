@@ -116,11 +116,6 @@ CORS_ALLOWED_ORIGINS = [
      os.environ.get('CLIENT_ORIGIN_DEV')
    ] if origin
  ]
-
-print("CORS_ALLOWED_ORIGINS =", CORS_ALLOWED_ORIGINS)
-
-print(CORS_ALLOWED_ORIGINS)
-
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'drf_api.urls'
