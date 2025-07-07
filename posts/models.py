@@ -25,10 +25,10 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
     content = models.TextField(blank=True)
-    category = models.CharField(max_length=50, choices=category_choices, default='Dog')
+    category = models.CharField(max_length=51, choices=category_choices, default='Dog')
     image = models.ImageField(
-        upload_to='images/',
-        default='../default_post_umaui6',
+        upload_to='',
+        default='default_post_umaui6',
         blank=True
     )
 
