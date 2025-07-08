@@ -27,7 +27,7 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     category = models.CharField(max_length=50, choices=category_choices, default='Dog')
     image = models.ImageField(
-        upload_to='',
+        upload_to='posts/',
         default='default_post_umaui6',
         blank=True
     )
