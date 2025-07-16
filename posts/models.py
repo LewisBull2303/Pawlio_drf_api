@@ -24,7 +24,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
-    content = models.TextField(blank=True)
+    content = models.TextField(blank=True, max_length=309)
     category = models.CharField(max_length=50, choices=category_choices, default='Dog')
     image = models.ImageField(
         upload_to='images/',
