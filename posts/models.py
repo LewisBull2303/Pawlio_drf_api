@@ -6,17 +6,17 @@ class Post(models.Model):
     category_choices = [
         ('Dog', 'Dog'),
         ('Puppy', 'Puppy'),
-        ('Senior Dog', 'Senior Dog'),
+        ('Old Pet', 'Old Pet'),
         ('Nature', 'Nature'),
         ('Family', 'Family'),
-        ('Big Dog', 'Big Dog'),
-        ('Small Dog', 'Small Dog'),
+        ('Big Pet', 'Big Pet'),
+        ('Small Pet', 'Small Pet'),
         ('Funny', 'Funny'),
         ('Sleeping', 'Sleeping'),
         ('Playing', 'Playing'),
         ('Zoomies', 'Zoomies'),
         ('Camping', 'Camping'),
-        ('Kids & Dogs', 'Kids & Dogs'),
+        ('Kids & Pets', 'Kids & Pets'),
         ('Cute', 'Cute'),
         ('Silly', 'Silly')
     ]
@@ -24,7 +24,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
-    content = models.TextField(blank=True, max_length=300)
+    content = models.TextField(blank=True, max_length=1000)
     category = models.CharField(max_length=50, choices=category_choices, default='Dog')
     image = models.ImageField(
         upload_to='images/',
