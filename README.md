@@ -62,15 +62,24 @@ ForeignKey relation between the post field and the Post model post field
 
 ## Libraries and Tools:
 
-Cloudinary - To store static files such as images
-Git - Used for version control via the Visual Studio Code terminal to push the code to Github
-Github - Used to store the project code into a remote repository
-Heroku - Used to deploy and host the website into live environment
-Django REST Framework - Used to build the API for the backend
-Djano AllAuth - Used for user authentication
-Pillow - Used for image processing and validation
-Psycopg2 - Used as a PostgreSQL database adapter for python
-PostgreSQL - The deployed project uses a PostgreSQL database
+- Cloudinary - To store static files such as images
+- Git - Used for version control via the Visual Studio Code terminal to push the code to Github
+- Github - Used to store the project code into a remote repository
+- Heroku - Used to deploy and host the website into live environment
+- Django REST Framework - Used to build the API for the backend
+- Djano AllAuth - Used for user authentication
+- Pillow - Used for image processing and validation
+- Psycopg2 - Used as a PostgreSQL database adapter for python
+- PostgreSQL - The deployed project uses a PostgreSQL database
+- Pycodestyle - Used to validate the code to PEP8 Standards
+
+## Validation
+
+### Pycodestyle/PEP8 Validation
+
+The library Pycodestlye was used to validate all of the python code as the PEP8 Online validator no longer exists, All code passes with no errors or warnings:
+
+
 
 
 
