@@ -54,3 +54,23 @@ The Like model contains the following fields: owner, post and created_at
 ForeignKey relation between to the User model id field
 ForeignKey relation between the owner field and the User model id field
 ForeignKey relation between the post field and the Post model post field
+
+## Technologies Used
+
+ - Python
+ - Django
+
+## Libraries and Tools:
+
+Cloudinary - To store static files such as images
+Git - Used for version control via the Visual Studio Code terminal to push the code to Github
+Github - Used to store the project code into a remote repository
+Heroku - Used to deploy and host the website into live environment
+Django REST Framework - Used to build the API for the backend
+Djano AllAuth - Used for user authentication
+Pillow - Used for image processing and validation
+Psycopg2 - Used as a PostgreSQL database adapter for python
+PostgreSQL - The deployed project uses a PostgreSQL database
+
+
+
