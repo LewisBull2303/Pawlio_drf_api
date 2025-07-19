@@ -14,6 +14,7 @@ This repository holds the API for the Pawlio front end social media application.
 - [Technologies Used](#technologies-used)
 - [Validation](#validation)
 - [Testing](#testing)
+- [Credits](#Credits)
 
 ## User Stories
 
