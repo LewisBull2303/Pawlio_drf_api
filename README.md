@@ -72,6 +72,7 @@ ForeignKey relation between the post field and the Post model post field
 ## Libraries and Tools:
 
 - Cloudinary - To store static files such as images
+- Coverage - Used to do automated tests and create a report for said tests
 - Git - Used for version control via the Visual Studio Code terminal to push the code to Github
 - Github - Used to store the project code into a remote repository
 - Heroku - Used to deploy and host the website into live environment
