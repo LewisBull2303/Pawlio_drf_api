@@ -125,5 +125,75 @@ The Following tests were carriewd out on the backend app:
 
 Automated testing was done using the Django Rest Framework APITestCase. The report for the overall testing was created using the coverage tool:
 
+<img width="1314" height="188" alt="image" src="https://github.com/user-attachments/assets/bcc15b98-89e4-4ceb-9e05-41f513c516f8" />
 
+Detailed Coverage Report:
+
+Name                                                              Stmts   Miss  Cover
+-------------------------------------------------------------------------------------
+comments\__init__.py                                                  0      0   100%
+comments\admin.py                                                     1      0   100%
+comments\apps.py                                                      4      0   100%
+comments\migrations\0001_initial.py                                   7      0   100%
+comments\migrations\0002_alter_comment_content.py                     4      0   100%
+comments\migrations\__init__.py                                       0      0   100%
+comments\models.py                                                   13      1    92%
+comments\serializers.py                                              20      2    90%
+comments\tests.py                                                    52      0   100%
+comments\urls.py                                                      3      0   100%
+comments\views.py                                                    17      0   100%
+drf_api\__init__.py                                                   0      0   100%
+drf_api\permissions.py                                                6      0   100%
+drf_api\serializers.py                                                7      0   100%
+drf_api\settings.py                                                  37      1    97%
+drf_api\urls.py                                                       4      0   100%
+drf_api\views.py                                                     12      5    58%
+env.py                                                                6      0   100%
+followers\__init__.py                                                 0      0   100%
+followers\admin.py                                                    1      0   100%
+followers\apps.py                                                     4      0   100%
+followers\migrations\0001_initial.py                                  7      0   100%
+followers\migrations\__init__.py                                      0      0   100%
+followers\models.py                                                  11      1    91%
+followers\serializers.py                                             14      2    86%
+followers\tests.py                                                   37      0   100%
+followers\urls.py                                                     3      0   100%
+followers\views.py                                                   14      0   100%
+likes\__init__.py                                                     0      0   100%
+likes\admin.py                                                        1      0   100%
+likes\apps.py                                                         4      0   100%
+likes\migrations\0001_initial.py                                      7      0   100%
+likes\migrations\__init__.py                                          0      0   100%
+likes\models.py                                                      12      1    92%
+likes\serializer.py                                                  13      2    85%
+likes\tests.py                                                       40      0   100%
+likes\urls.py                                                         3      0   100%
+likes\views.py                                                       14      0   100%
+manage.py                                                            11      2    82%
+posts\__init__.py                                                     0      0   100%
+posts\admin.py                                                        3      0   100%
+posts\apps.py                                                         4      0   100%
+posts\migrations\0001_initial.py                                      7      0   100%
+posts\migrations\0002_alter_post_content_alter_post_image.py          4      0   100%
+posts\migrations\0003_alter_post_content.py                           4      0   100%
+posts\migrations\0004_alter_post_category_alter_post_content.py       4      0   100%
+posts\migrations\__init__.py                                          0      0   100%
+posts\models.py                                                      15      1    93%
+posts\serializers.py                                                 43     12    72%
+posts\tests.py                                                       46      0   100%
+posts\urls.py                                                         3      0   100%
+posts\views.py                                                       20      0   100%
+profiles\__init__.py                                                  0      0   100%
+profiles\admin.py                                                     3      0   100%
+profiles\apps.py                                                      4      0   100%
+profiles\migrations\0001_initial.py                                   7      0   100%
+profiles\migrations\0002_alter_profile_content.py                     4      0   100%
+profiles\migrations\__init__.py                                       0      0   100%
+profiles\models.py                                                   18      1    94%
+profiles\serializers.py                                              22      1    95%
+profiles\tests.py                                                    33      0   100%
+profiles\urls.py                                                      3      0   100%
+profiles\views.py                                                    16      0   100%
+-------------------------------------------------------------------------------------
+TOTAL                                                               652     32    95%
 
