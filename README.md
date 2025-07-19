@@ -121,4 +121,9 @@ The Following tests were carriewd out on the backend app:
 |Profiles|Delete a Profile on the admin portal|The admin can delete a users Profile|Works as expected|
 
 
+## Automated Testing
+
+Automated testing was done using the Django Rest Framework APITestCase. The report for the overall testing was created using the coverage tool:
+
+
 
