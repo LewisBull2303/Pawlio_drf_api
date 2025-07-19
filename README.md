@@ -41,29 +41,29 @@ The below models were created to represent the database model structure of the a
  - ForeignKey relation with the Like model owner field
 
 ### Profile Model
-The Profile model contains the following fields: owner, name, content, created_at, updated_at and image
-One-to-one relation between the owner field and the User model id field
+- The Profile model contains the following fields: owner, name, content, created_at, updated_at and image
+- One-to-one relation between the owner field and the User model id field
 
 ### Post Model
-The Post model contains the following fields: owner, created_at, updated_at, title, content, category and image
-ForeignKey relation with the Comment model post field
-ForeignKey relation with the Like model post field
+- The Post model contains the following fields: owner, created_at, updated_at, title, content, category and image
+- ForeignKey relation with the Comment model post field
+- ForeignKey relation with the Like model post field
 
 ### Follower Model
-The Follower model contains the following fields: owner, followed and created_at
-ForeignKey relation between the owner field and the User model id field
-ForeignKey relation between the followed field and the User model post field
+- The Follower model contains the following fields: owner, followed and created_at
+- ForeignKey relation between the owner field and the User model id field
+- ForeignKey relation between the followed field and the User model post field
 
 ### Comment Model
-The Comment model contains the following fields: owner, post, created_at, updated_at and content
-ForeignKey relation between the owner field and the User model id field
-ForeignKey relation between the post field and the User model post field
+- The Comment model contains the following fields: owner, post, created_at, updated_at and content
+- ForeignKey relation between the owner field and the User model id field
+- ForeignKey relation between the post field and the User model post field
 
 ### Like Model
-The Like model contains the following fields: owner, post and created_at
-ForeignKey relation between to the User model id field
-ForeignKey relation between the owner field and the User model id field
-ForeignKey relation between the post field and the Post model post field
+- The Like model contains the following fields: owner, post and created_at
+- ForeignKey relation between to the User model id field
+- ForeignKey relation between the owner field and the User model id field
+- ForeignKey relation between the post field and the Post model post field
 
 ## Technologies Used
 
