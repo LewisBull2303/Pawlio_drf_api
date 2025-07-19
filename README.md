@@ -180,73 +180,21 @@ Automated testing was done using the Django Rest Framework APITestCase. The repo
 
 <img width="1314" height="188" alt="image" src="https://github.com/user-attachments/assets/bcc15b98-89e4-4ceb-9e05-41f513c516f8" />
 
-Detailed Coverage Report:
+<details>
+ <summary>Detailed Coverage Report</summary>
 
-Name                                                              Stmts   Miss  Cover
--------------------------------------------------------------------------------------
-comments\__init__.py                                                  0      0   100%
-comments\admin.py                                                     1      0   100%
-comments\apps.py                                                      4      0   100%
-comments\migrations\0001_initial.py                                   7      0   100%
-comments\migrations\0002_alter_comment_content.py                     4      0   100%
-comments\migrations\__init__.py                                       0      0   100%
-comments\models.py                                                   13      1    92%
-comments\serializers.py                                              20      2    90%
-comments\tests.py                                                    52      0   100%
-comments\urls.py                                                      3      0   100%
-comments\views.py                                                    17      0   100%
-drf_api\__init__.py                                                   0      0   100%
-drf_api\permissions.py                                                6      0   100%
-drf_api\serializers.py                                                7      0   100%
-drf_api\settings.py                                                  37      1    97%
-drf_api\urls.py                                                       4      0   100%
-drf_api\views.py                                                     12      5    58%
-env.py                                                                6      0   100%
-followers\__init__.py                                                 0      0   100%
-followers\admin.py                                                    1      0   100%
-followers\apps.py                                                     4      0   100%
-followers\migrations\0001_initial.py                                  7      0   100%
-followers\migrations\__init__.py                                      0      0   100%
-followers\models.py                                                  11      1    91%
-followers\serializers.py                                             14      2    86%
-followers\tests.py                                                   37      0   100%
-followers\urls.py                                                     3      0   100%
-followers\views.py                                                   14      0   100%
-likes\__init__.py                                                     0      0   100%
-likes\admin.py                                                        1      0   100%
-likes\apps.py                                                         4      0   100%
-likes\migrations\0001_initial.py                                      7      0   100%
-likes\migrations\__init__.py                                          0      0   100%
-likes\models.py                                                      12      1    92%
-likes\serializer.py                                                  13      2    85%
-likes\tests.py                                                       40      0   100%
-likes\urls.py                                                         3      0   100%
-likes\views.py                                                       14      0   100%
-manage.py                                                            11      2    82%
-posts\__init__.py                                                     0      0   100%
-posts\admin.py                                                        3      0   100%
-posts\apps.py                                                         4      0   100%
-posts\migrations\0001_initial.py                                      7      0   100%
-posts\migrations\0002_alter_post_content_alter_post_image.py          4      0   100%
-posts\migrations\0003_alter_post_content.py                           4      0   100%
-posts\migrations\0004_alter_post_category_alter_post_content.py       4      0   100%
-posts\migrations\__init__.py                                          0      0   100%
-posts\models.py                                                      15      1    93%
-posts\serializers.py                                                 43     12    72%
-posts\tests.py                                                       46      0   100%
-posts\urls.py                                                         3      0   100%
-posts\views.py                                                       20      0   100%
-profiles\__init__.py                                                  0      0   100%
-profiles\admin.py                                                     3      0   100%
-profiles\apps.py                                                      4      0   100%
-profiles\migrations\0001_initial.py                                   7      0   100%
-profiles\migrations\0002_alter_profile_content.py                     4      0   100%
-profiles\migrations\__init__.py                                       0      0   100%
-profiles\models.py                                                   18      1    94%
-profiles\serializers.py                                              22      1    95%
-profiles\tests.py                                                    33      0   100%
-profiles\urls.py                                                      3      0   100%
-profiles\views.py                                                    16      0   100%
--------------------------------------------------------------------------------------
-TOTAL                                                               652     32    95%
+<img width="784" height="484" alt="image" src="https://github.com/user-attachments/assets/08269552-c6af-4523-a7fe-eef3511b8bd6" />
+<img width="797" height="514" alt="image" src="https://github.com/user-attachments/assets/912e0a9f-3d8a-4be7-a308-34aa6fc75be6" />
+<img width="784" height="509" alt="image" src="https://github.com/user-attachments/assets/315d2e30-e7b5-4389-87fe-65a221953498" />
 
+</details>
+
+## Credits:
+
+### Images
+
+- Images for the default post and default profile picture were taken from the Code Institute's Django REST API walkthrough project [Moments](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/)
+
+### Code
+
+This whole project was created based on the Code Institute's Django REST API walkthrough project [Moments](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/) which was an amazing learning experience for me and helped me a great deal to understanding many errors I faced and issues I had to overcome
