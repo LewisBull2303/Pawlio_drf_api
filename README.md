@@ -28,7 +28,8 @@ The backend of the project has a focus on the admin side of the website allowing
 
 The below models were created to represent the database model structure of the application:
 
-DATABASE IMAGE HERE
+<img width="1760" height="655" alt="Database Diagram" src="https://github.com/user-attachments/assets/b9e0f733-31a4-41dc-8f8e-d5765fd0808b" />
+
 
 ### User Model
 
@@ -71,17 +72,19 @@ ForeignKey relation between the post field and the Post model post field
 
 ## Libraries and Tools:
 
-- Cloudinary - To store static files such as images
-- Coverage - Used to do automated tests and create a report for said tests
-- Git - Used for version control via the Visual Studio Code terminal to push the code to Github
-- Github - Used to store the project code into a remote repository
-- Heroku - Used to deploy and host the website into live environment
-- Django REST Framework - Used to build the API for the backend
-- Djano AllAuth - Used for user authentication
-- Pillow - Used for image processing and validation
-- Psycopg2 - Used as a PostgreSQL database adapter for python
-- PostgreSQL - The deployed project uses a PostgreSQL database
-- Pycodestyle - Used to validate the code to PEP8 Standards
+- [APITestCase](https://www.django-rest-framework.org/api-guide/testing/) - Django Rest Framework APITestCase was used for automated testing
+- [Cloudinary](https://cloudinary.com/) - To store static files such as images
+- [Coverage](https://coverage.readthedocs.io/en/6.4.4/) - Used to create a report for automated tests
+- [Dbdiagram.io](https://dbdiagram.io/home) used for the database diagram
+- [Git](https://git-scm.com/) - Used for version control via the Visual Studio Code terminal to push the code to Github
+- [Github](https://github.com/) - Used to store the project code into a remote repository
+- [Heroku](https://www.heroku.com/) - Used to deploy and host the website into live environment
+- [Django REST Framework](https://www.django-rest-framework.org/) - Used to build the API for the backend
+- [Djano AllAuth](https://django-allauth.readthedocs.io/en/latest/index.html) - Used for user authentication
+- [Pillow](https://pillow.readthedocs.io/en/stable/) - Used for image processing and validation
+- [Psycopg2](https://www.psycopg.org/docs/) - Used as a PostgreSQL database adapter for python
+- [PostgreSQL(https://www.postgresql.org/) - The deployed project uses a PostgreSQL database
+- [Pycodestyle](https://pypi.org/project/pycodestyle/) - Used to validate the code to PEP8 Standards
 
 ## Validation
 
