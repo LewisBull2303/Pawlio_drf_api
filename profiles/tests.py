@@ -42,9 +42,9 @@ class ProfileDetailViewTests(APITestCase):
         """
         self.client.login(username='aleks', password='password')
         response = self.client.put('/profiles/1/',
-                                   {'description': 'hello world'})
+                                   {'content': 'hello world'})
         profile = Profile.objects.filter(pk=1).first()
-        self.assertEqual(profile.description, 'hello world')
+        self.assertEqual(profile.content, 'hello world')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_user_cannot_update_other_profiles(self):
@@ -52,7 +52,7 @@ class ProfileDetailViewTests(APITestCase):
         Test if user cannot update other users' profiles
         """
         self.client.login(username='aleks', password='password')
-        response = self.client.put('/profiles/2/', {'description': 'hi there'})
+        response = self.client.put('/profiles/2/', {'content': 'hi there'})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_not_logged_in_user_can_update_their_own_profile(self):
@@ -60,7 +60,7 @@ class ProfileDetailViewTests(APITestCase):
         Test if user can update their profile when not logged in
         """
         response = self.client.put('/profiles/1/',
-                                   {'description': 'hello world'})
+                                   {'content': 'hello world'})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_user_can_delete_their_profile(self):
