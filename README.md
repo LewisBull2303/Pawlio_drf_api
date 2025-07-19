@@ -108,6 +108,18 @@ The Following tests were carriewd out on the backend app:
 |Posts|Edit a post on the admin portal|The admin can edit a users post|Works as expected|
 |Posts|Delete a post on the admin portal|The admin can delete a users post|Works as expected|
 
+<details>
+ <summary>Images - Posts</summary>
+
+<img width="724" height="474" alt="image" src="https://github.com/user-attachments/assets/ca8db91a-5614-4027-9c5f-9480163451b9" />
+<img width="797" height="662" alt="image" src="https://github.com/user-attachments/assets/ecffec5d-2ab1-49cd-8429-63a112cf3f2d" />
+<img width="1237" height="525" alt="image" src="https://github.com/user-attachments/assets/7daab795-4ce5-491c-9f80-0a448c33a132" />
+<img width="989" height="352" alt="image" src="https://github.com/user-attachments/assets/8274ae8e-07a5-4963-9466-8a00f5880c2b" />
+<img width="311" height="81" alt="image" src="https://github.com/user-attachments/assets/e8f74f86-17b4-4e04-9329-2f96e6645d73" />
+
+
+</details>
+
  - As an admin, I want to be able to create, edit and delete users comments
 
 |Test|Action|Expected Result|Actual Result|
@@ -116,6 +128,16 @@ The Following tests were carriewd out on the backend app:
 |Comments|Edit a comment on the admin portal|The admin can edit a users comment|Works as expected|
 |Comments|Delete a Comment on the admin portal|The admin can delete a users comment|Works as expected|
 
+<details>
+ <summary>Images - Comments</summary>
+
+<img width="1222" height="599" alt="image" src="https://github.com/user-attachments/assets/031c6fd4-1a67-484a-80b4-69eabca06d75" />
+<img width="1214" height="652" alt="image" src="https://github.com/user-attachments/assets/d293d148-6450-47a0-9aa7-539ea45e6fe5" />
+<img width="1509" height="598" alt="image" src="https://github.com/user-attachments/assets/4da4ffa1-d1cd-4704-8ed3-1375257cb66f" />
+
+</details>
+
+
  - As an admin, I want to be able to create, edit and delete users likes
 
 |Test|Action|Expected Result|Actual Result|
@@ -123,6 +145,16 @@ The Following tests were carriewd out on the backend app:
 |Likes|Like a post on the admin portal|The admin can like a post|Works as expected|
 |Likes|Edit a users liked posts on the admin portal|The admin can edit a users likes|Works as expected|
 |Likes|Delete a like for a post on the admin portal|The admin can delete a users likes|Works as expected|
+
+<details>
+ <summary>Images - Likes</summary>
+
+<img width="948" height="418" alt="image" src="https://github.com/user-attachments/assets/c6a6ce5b-9938-4b4e-8965-4a95def36335" />
+<img width="684" height="462" alt="image" src="https://github.com/user-attachments/assets/f0e90605-69f1-46c9-ad23-d803472f5a03" />
+<img width="952" height="394" alt="image" src="https://github.com/user-attachments/assets/343e811e-53ae-4df2-a222-b2eedf05b8c7" />
+<img width="1545" height="511" alt="image" src="https://github.com/user-attachments/assets/ce1f33fa-f132-466e-aaa6-be9cd0cda62d" />
+
+</details>
   
  - As an admin, I want to be able to create, edit and delete users accounts
 
@@ -132,6 +164,15 @@ The Following tests were carriewd out on the backend app:
 |Profiles|Edit a Profile on the admin portal|The admin can edit a users Profile|Works as expected|
 |Profiles|Delete a Profile on the admin portal|The admin can delete a users Profile|Works as expected|
 
+<details>
+ <summary>Images - Profiles</summary>
+
+<img width="1482" height="687" alt="image" src="https://github.com/user-attachments/assets/d191f30c-d04b-46b0-8519-0424d87b8c3a" />
+<img width="1556" height="703" alt="image" src="https://github.com/user-attachments/assets/d280c02b-d405-41ba-9bc4-3fd05895945f" />
+<img width="956" height="375" alt="image" src="https://github.com/user-attachments/assets/85d5c6d9-0aae-40d7-a746-2ff00ef90bcb" />
+<img width="1293" height="446" alt="image" src="https://github.com/user-attachments/assets/e404de27-ad4b-4f7e-a69f-5fd8cf945098" />
+
+</details>
 
 ## Automated Testing
 
