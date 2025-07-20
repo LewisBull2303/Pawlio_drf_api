@@ -6,17 +6,17 @@ class Post(models.Model):
     category_choices = [
         ('Dog', 'Dog'),
         ('Puppy', 'Puppy'),
-        ('Senior Dog', 'Senior Dog'),
+        ('Old Pet', 'Old Pet'),
         ('Nature', 'Nature'),
         ('Family', 'Family'),
-        ('Big Dog', 'Big Dog'),
-        ('Small Dog', 'Small Dog'),
+        ('Big Pet', 'Big Pet'),
+        ('Small Pet', 'Small Pet'),
         ('Funny', 'Funny'),
         ('Sleeping', 'Sleeping'),
         ('Playing', 'Playing'),
         ('Zoomies', 'Zoomies'),
         ('Camping', 'Camping'),
-        ('Kids & Dogs', 'Kids & Dogs'),
+        ('Kids & Pets', 'Kids & Pets'),
         ('Cute', 'Cute'),
         ('Silly', 'Silly')
     ]
@@ -26,10 +26,10 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField(blank=True)
     category = models.CharField(
-        max_length=51, choices=category_choices, default='Dog')
+        max_length=50, choices=category_choices, default='Dog')
     image = models.ImageField(
         upload_to='',
-        default='default_post_umaui6',
+        default='default_post_wbup9c',
         blank=True
     )
 

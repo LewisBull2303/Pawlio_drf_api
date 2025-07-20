@@ -15,7 +15,6 @@ class PostSerializer(serializers.ModelSerializer):
     def validate_image(self, value):
         # Check image height, width and size
         from PIL import Image
-        import io
 
         # Open the image file
         image = Image.open(value)
