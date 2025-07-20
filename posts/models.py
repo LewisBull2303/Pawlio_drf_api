@@ -6,17 +6,17 @@ class Post(models.Model):
     category_choices = [
         ('Dog', 'Dog'),
         ('Puppy', 'Puppy'),
-        ('Old Pet', 'Old Pet'),
+        ('Senior Dog', 'Senior Dog'),
         ('Nature', 'Nature'),
         ('Family', 'Family'),
-        ('Big Pet', 'Big Pet'),
-        ('Small Pet', 'Small Pet'),
+        ('Big Dog', 'Big Dog'),
+        ('Small Dog', 'Small Dog'),
         ('Funny', 'Funny'),
         ('Sleeping', 'Sleeping'),
         ('Playing', 'Playing'),
         ('Zoomies', 'Zoomies'),
         ('Camping', 'Camping'),
-        ('Kids & Pets', 'Kids & Pets'),
+        ('Kids & Dogs', 'Kids & Dogs'),
         ('Cute', 'Cute'),
         ('Silly', 'Silly')
     ]
