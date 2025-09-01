@@ -1,5 +1,6 @@
 from django.db.models import Count
-from rest_framework import generics, filters
+from rest_framework import generics, status, filters
+from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Profile
@@ -45,3 +46,13 @@ class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
+
+    def delete(self, request, pk):
+        """
+        Delete a profile by id
+        """
+        user = self.request.user
+        user.delete()
+        return Response(
+            status=status.HTTP_204_NO_CONTENT
+        )
