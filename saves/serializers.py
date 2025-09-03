@@ -10,6 +10,7 @@ class SaveSerializer(serializers.ModelSerializer):
     post_id = serializers.ReadOnlyField(source='post.id')
     post_image = serializers.ReadOnlyField(source='post.image.url')
     post_owner = serializers.ReadOnlyField(source='post.owner.username')
+    created_at = serializers.ReadOnlyField()
 
     def get_post_details(self, obj):
         post = Post.objects.get(id=obj.post.id)
