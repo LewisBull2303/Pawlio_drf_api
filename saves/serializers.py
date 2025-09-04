@@ -4,7 +4,7 @@ from .models import Saves
 
 class SaveSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-    post = serializers.PrimaryKeyRelatedField(queryset=Post.objects.all())  # <- add this
+    post = serializers.PrimaryKeyRelatedField(queryset=Post.objects.all())
     post_id = serializers.ReadOnlyField(source='post.id')
     post_image = serializers.ReadOnlyField(source='post.image.url')
     post_owner = serializers.ReadOnlyField(source='post.owner.username')
