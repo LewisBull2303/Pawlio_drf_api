@@ -94,8 +94,8 @@ INSTALLED_APPS = [
     'profiles',
     'posts',
     'comments',
-    'saves',
     'likes',
+    'save',
     'followers',
 ]
 
