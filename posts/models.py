@@ -21,8 +21,8 @@ class Post(models.Model):
         ('Silly', 'Silly')
     ]
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True, max_length=1000)
     category = models.CharField(max_length=50, choices=category_choices, default='Dog')
@@ -33,7 +33,7 @@ class Post(models.Model):
     )
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['-created_on']
 
     def __str__(self):
         return f'{self.id} {self.title}'

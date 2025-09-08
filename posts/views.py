@@ -20,7 +20,7 @@ class PostList(generics.ListCreateAPIView):
             'likes',
             distinct=True
         )
-    ).order_by('-created_at')
+    ).order_by('-created_on')
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
@@ -29,7 +29,7 @@ class PostList(generics.ListCreateAPIView):
     ordering_fields = [
         'comments_count',
         'likes_count',
-        'likes__created_at',
+        'likes__created_on',
     ]
     search_fields = [
         'owner__username',
@@ -62,4 +62,4 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
             'likes',
             distinct=True
         )
-    ).order_by('-created_at')
+    ).order_by('-created_on')
