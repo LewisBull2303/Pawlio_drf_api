@@ -1,7 +1,16 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3rd party:
 from rest_framework import generics, permissions
-from drf_api.permissions import IsOwnerOrReadOnly
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Internal:
 from .models import Follower
 from .serializers import FollowerSerializer
+from drf_api.permissions import IsOwnerOrReadOnly
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 class FollowerList(generics.ListCreateAPIView):
