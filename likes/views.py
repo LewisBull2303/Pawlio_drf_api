@@ -1,7 +1,16 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3rd party:
 from rest_framework import generics, permissions
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Internal:
+from .models import Like
+from .serializer import LikeSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
-from likes.models import Like
-from likes.serializer import LikeSerializer
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 class LikeList(generics.ListCreateAPIView):
