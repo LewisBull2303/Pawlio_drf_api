@@ -200,8 +200,8 @@ Automated testing was done using the Django Rest Framework APITestCase. The repo
 
 This application has been deployed from Github using Heroku. Here's how:
 
-1 .Create an account at heroku.com
-2 .Create an app, give it a name for such as ci-pp4-the-wave, and select a region
+1. Create an account at heroku.com
+2. Create an app, give it a name for such as ci-pp4-the-wave, and select a region
 3. Under resources search for postgres, and add a Postgres database to the app
 
 ### Heroku Postgres
