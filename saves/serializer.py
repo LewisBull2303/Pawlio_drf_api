@@ -23,6 +23,9 @@ class SaveSerializer(serializers.ModelSerializer):
         fields = ["id", "created_at", "owner", "post"]
 
     def create(self, validated_data):
+        """
+        Handles duplication errors
+        """
         try:
             return super().create(validated_data)
         except IntegrityError:

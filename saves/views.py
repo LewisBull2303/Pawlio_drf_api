@@ -13,6 +13,9 @@ from saves.serializer import SaveSerializer
 
 
 class SaveList(generics.ListCreateAPIView):
+    """
+    A class for the saves list
+    """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = SaveSerializer
     queryset = Save.objects.all()
@@ -22,12 +25,19 @@ class SaveList(generics.ListCreateAPIView):
 
 
 class SaveDetail(generics.RetrieveDestroyAPIView):
+    """
+    a class for the save details
+    Users can retrieve a save or remove a saved post
+    """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = SaveSerializer
     queryset = Save.objects.all()
 
 
 class UserSaveList(generics.ListAPIView):
+    """
+    a class for the user's saved posts
+    """
     serializer_class = SaveSerializer
     permission_classes = [permissions.IsAuthenticated]
 
