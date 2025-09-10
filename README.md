@@ -179,14 +179,18 @@ The Following tests were carriewd out on the backend app:
 
 Automated testing was done using the Django Rest Framework APITestCase. The report for the overall testing was created using the coverage tool:
 
-<img width="1314" height="188" alt="image" src="https://github.com/user-attachments/assets/bcc15b98-89e4-4ceb-9e05-41f513c516f8" />
+<img width="869" height="482" alt="image" src="https://github.com/user-attachments/assets/1f7e3374-2573-4537-af4f-9c27741bbedb" />
 
 <details>
  <summary>Detailed Coverage Report</summary>
 
-<img width="784" height="484" alt="image" src="https://github.com/user-attachments/assets/08269552-c6af-4523-a7fe-eef3511b8bd6" />
-<img width="797" height="514" alt="image" src="https://github.com/user-attachments/assets/912e0a9f-3d8a-4be7-a308-34aa6fc75be6" />
-<img width="784" height="509" alt="image" src="https://github.com/user-attachments/assets/315d2e30-e7b5-4389-87fe-65a221953498" />
+<img width="1286" height="901" alt="image" src="https://github.com/user-attachments/assets/5a410176-670b-4330-a3a0-aff4b5d7cc1f" />
+
+<img width="1240" height="877" alt="image" src="https://github.com/user-attachments/assets/0a2924c7-8565-43ab-9a5f-ede6208f2630" />
+
+<img width="1194" height="877" alt="image" src="https://github.com/user-attachments/assets/e60837b8-cf8c-406c-a70e-e9868c373c0f" />
+
+<img width="1367" height="849" alt="image" src="https://github.com/user-attachments/assets/4c4c5afd-e689-4742-be06-a14697fb9a70" />
 
 </details>
 
