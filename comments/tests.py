@@ -23,7 +23,7 @@ class CommentListViewTests(APITestCase):
         """
         Test to ensure not logged-in user cannot create a comment
         """
-        response = self.client.post("/comments/", {"content": "a comment"})
+        response = self.client.post("/comments/", {"description": "a comment"})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
 
@@ -35,13 +35,13 @@ class CommentDetailViewTests(APITestCase):
         Lewis = User.objects.create_user(username="Lewis", password="password")
         dave = User.objects.create_user(username="dave", password="password")
         Post.objects.create(
-            owner=Lewis, title="post title", content="test", category="Polish"
+            owner=Lewis, title="post title", description="test", category="Polish"
         )
         Post.objects.create(
-            owner=dave, title="post title2", content="test2", category="Spanish"
+            owner=dave, title="post title2", description="test2", category="Spanish"
         )
-        Comment.objects.create(owner=Lewis, post_id=1, content="comment one")
-        Comment.objects.create(owner=dave, post_id=2, content="comment two")
+        Comment.objects.create(owner=Lewis, post_id=1, description="comment one")
+        Comment.objects.create(owner=dave, post_id=2, description="comment two")
 
     def test_logged_in_user_can_create_comment(self):
         """
@@ -49,7 +49,7 @@ class CommentDetailViewTests(APITestCase):
         """
         self.client.login(username="Lewis", password="password")
         response = self.client.post(
-            "/comments/", {"post": 1, "content": "a new comment"}
+            "/comments/", {"post": 1, "description": "a new comment"}
         )
         comment_count = Comment.objects.count()
         self.assertEqual(comment_count, 3)
@@ -61,7 +61,7 @@ class CommentDetailViewTests(APITestCase):
         """
         self.client.login(username="Lewis", password="password")
         response = self.client.get("/comments/1/")
-        self.assertEqual(response.data["content"], "comment one")
+        self.assertEqual(response.data["description"], "comment one")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_cannot_retrieve_non_existing_comment(self):
@@ -78,9 +78,9 @@ class CommentDetailViewTests(APITestCase):
         Test if user can update a comment they created
         """
         self.client.login(username="Lewis", password="password")
-        response = self.client.put("/comments/1/", {"content": "updated comment"})
+        response = self.client.put("/comments/1/", {"description": "updated comment"})
         comment = Comment.objects.filter(pk=1).first()
-        self.assertEqual(comment.content, "updated comment")
+        self.assertEqual(comment.description, "updated comment")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_user_cannot_update_other_users_comment(self):
@@ -88,7 +88,7 @@ class CommentDetailViewTests(APITestCase):
         Test if user can update other users' comment
         """
         self.client.login(username="Lewis", password="password")
-        response = self.client.put("/comments/2/", {"content": "updated comment"})
+        response = self.client.put("/comments/2/", {"description": "updated comment"})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_user_can_delete_their_own_comment(self):
