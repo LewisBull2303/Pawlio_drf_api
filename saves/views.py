@@ -1,7 +1,15 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3rd party:
 from rest_framework import generics, permissions
 from drf_api.permissions import IsOwnerOrReadOnly
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Internal:
 from saves.models import Save
 from saves.serializer import SaveSerializer
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 class SaveList(generics.ListCreateAPIView):
@@ -17,6 +25,7 @@ class SaveDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = SaveSerializer
     queryset = Save.objects.all()
+
 
 class UserSaveList(generics.ListAPIView):
     serializer_class = SaveSerializer
