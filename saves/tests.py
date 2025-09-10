@@ -17,7 +17,7 @@ class SaveTests(APITestCase):
         """
         Create two users and one post for testing.
         """
-        self.user1 = User.objects.create_user(username="aleks", password="password")
+        self.user1 = User.objects.create_user(username="Lewis", password="password")
         self.user2 = User.objects.create_user(username="dave", password="password")
 
         self.post = Post.objects.create(owner=self.user1, title="Test Post", content="Content here")
@@ -26,7 +26,7 @@ class SaveTests(APITestCase):
         """
         A logged-in user can save a post.
         """
-        self.client.login(username="aleks", password="password")
+        self.client.login(username="Lewis", password="password")
         response = self.client.post("/saves/", {"post": self.post.id})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Save.objects.count(), 1)
@@ -36,7 +36,7 @@ class SaveTests(APITestCase):
         """
         A user cannot save the same post twice.
         """
-        self.client.login(username="aleks", password="password")
+        self.client.login(username="Lewis", password="password")
         self.client.post("/saves/", {"post": self.post.id})
         response = self.client.post("/saves/", {"post": self.post.id})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
@@ -63,7 +63,7 @@ class SaveTests(APITestCase):
         A user can delete their own save.
         """
         save = Save.objects.create(owner=self.user1, post=self.post)
-        self.client.login(username="aleks", password="password")
+        self.client.login(username="Lewis", password="password")
         response = self.client.delete(f"/saves/{save.id}/")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Save.objects.count(), 0)
@@ -85,8 +85,8 @@ class SaveTests(APITestCase):
         Save.objects.create(owner=self.user1, post=self.post)
         Save.objects.create(owner=self.user2, post=self.post)
 
-        self.client.login(username="aleks", password="password")
+        self.client.login(username="Lewis", password="password")
         response = self.client.get("/my-saves/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]["owner"], "aleks")
+        self.assertEqual(response.data[0]["owner"], "Lewis")
