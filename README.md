@@ -84,7 +84,7 @@ The below models were created to represent the database model structure of the a
 - [Djano AllAuth](https://django-allauth.readthedocs.io/en/latest/index.html) - Used for user authentication
 - [Pillow](https://pillow.readthedocs.io/en/stable/) - Used for image processing and validation
 - [Psycopg2](https://www.psycopg.org/docs/) - Used as a PostgreSQL database adapter for python
-- [PostgreSQL(https://www.postgresql.org/) - The deployed project uses a PostgreSQL database
+- [PostgreSQL](https://www.postgresql.org/) - The deployed project uses a PostgreSQL database
 - [Pycodestyle](https://pypi.org/project/pycodestyle/) - Used to validate the code to PEP8 Standards
 
 ## Validation
