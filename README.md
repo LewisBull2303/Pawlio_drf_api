@@ -250,3 +250,10 @@ You can clone the repository by following these steps:
 ### Code
 
 This whole project was created based on the Code Institute's Django REST API walkthrough project [Moments](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/) which was an amazing learning experience for me and helped me a great deal to understanding many errors I faced and issues I had to overcome
+
+### Acknowledgements
+
+First and foremost, I would like to give a special thank you to my wonderful fiancée Jasmine, whose support has made managing a full-time job, Open University, and Code Institute submissions possible.
+Another special thank you to my Friend Dylan who helped to test the final deployed project
+
+Special thank you as well to my Mentor, Mo Shami, whos help and guidance has been a huge help
