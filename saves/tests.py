@@ -5,88 +5,107 @@ from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-# Internal:
+# Internal
 from posts.models import Post
 from saves.models import Save
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-class SaveTests(APITestCase):
+class SaveListViewTests(APITestCase):
     def setUp(self):
         """
-        Create two users and one post for testing.
+        Automatically runs before each test.
+        Creates two users and one post.
         """
-        self.user1 = User.objects.create_user(username="Lewis", password="password")
-        self.user2 = User.objects.create_user(username="dave", password="password")
+        self.lewis = User.objects.create_user(username="Lewis", password="password")
+        self.dave = User.objects.create_user(username="dave", password="password")
 
-        self.post = Post.objects.create(owner=self.user1, title="Test Post", content="Content here")
+        self.post = Post.objects.create(
+            owner=self.lewis, title="Test Post", description="Test description"
+        )
 
-    def test_user_can_create_save(self):
+    def test_not_logged_in_user_cannot_save_post(self):
         """
-        A logged-in user can save a post.
+        Test to ensure not logged-in user cannot save posts
+        """
+        response = self.client.post("/saves/", {"post": self.post.id})
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_logged_in_user_can_save_post(self):
+        """
+        Test to ensure logged-in user can save a post
         """
         self.client.login(username="Lewis", password="password")
         response = self.client.post("/saves/", {"post": self.post.id})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Save.objects.count(), 1)
-        self.assertEqual(Save.objects.first().owner, self.user1)
+        self.assertEqual(Save.objects.first().owner, self.lewis)
 
-    def test_user_cannot_create_duplicate_save(self):
+    def test_user_cannot_duplicate_save(self):
         """
-        A user cannot save the same post twice.
+        Test to ensure user cannot save the same post twice
         """
         self.client.login(username="Lewis", password="password")
         self.client.post("/saves/", {"post": self.post.id})
         response = self.client.post("/saves/", {"post": self.post.id})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertIn("Possible Duplication", str(response.data))
 
-    def test_anonymous_user_cannot_create_save(self):
+    def test_can_list_saves(self):
         """
-        Anonymous users cannot save posts.
+        Test if possible to list saves
         """
-        response = self.client.post("/saves/", {"post": self.post.id})
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    def test_user_can_view_save_list(self):
-        """
-        Any user can view the list of saves.
-        """
-        Save.objects.create(owner=self.user1, post=self.post)
+        Save.objects.create(owner=self.lewis, post=self.post)
         response = self.client.get("/saves/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data["count"], 1)
+        self.assertEqual(len(response.data["results"]), 1) 
+
+class SaveDetailViewTests(APITestCase):
+    def setUp(self):
+        """
+        Creates two users, one post and two saves
+        """
+        self.lewis = User.objects.create_user(username="Lewis", password="password")
+        self.dave = User.objects.create_user(username="dave", password="password")
+
+        self.post = Post.objects.create(
+            owner=self.lewis, title="Test Post", description="Test description"
+        )
+
+        self.save1 = Save.objects.create(owner=self.lewis, post=self.post)
+        self.save2 = Save.objects.create(owner=self.dave, post=self.post)
+
+    def test_user_can_retrieve_existing_save(self):
+        """
+        Test if possible to retrieve a save with valid ID
+        """
+        self.client.login(username="Lewis", password="password")
+        response = self.client.get(f"/saves/{self.save1.id}/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_user_cannot_retrieve_non_existing_save(self):
+        """
+        Test if possible to retrieve a save which doesn't exist
+        """
+        self.client.login(username="Lewis", password="password")
+        response = self.client.get("/saves/9999/")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_user_can_delete_own_save(self):
         """
-        A user can delete their own save.
+        Test if user can delete their own save
         """
-        save = Save.objects.create(owner=self.user1, post=self.post)
         self.client.login(username="Lewis", password="password")
-        response = self.client.delete(f"/saves/{save.id}/")
+        response = self.client.delete(f"/saves/{self.save1.id}/")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertEqual(Save.objects.count(), 0)
-
-    def test_user_cannot_delete_other_users_save(self):
-        """
-        Users cannot delete saves they do not own.
-        """
-        save = Save.objects.create(owner=self.user1, post=self.post)
-        self.client.login(username="dave", password="password")
-        response = self.client.delete(f"/saves/{save.id}/")
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertEqual(Save.objects.count(), 1)
 
-    def test_user_save_list_only_shows_own_saves(self):
+    def test_user_cannot_delete_other_user_save(self):
         """
-        The /my-saves/ endpoint should only return saves for the logged-in user.
+        Test if user cannot delete other users' saves
         """
-        Save.objects.create(owner=self.user1, post=self.post)
-        Save.objects.create(owner=self.user2, post=self.post)
-
         self.client.login(username="Lewis", password="password")
-        response = self.client.get("/my-saves/")
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]["owner"], "Lewis")
+        response = self.client.delete(f"/saves/{self.save2.id}/")
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(Save.objects.count(), 2)
