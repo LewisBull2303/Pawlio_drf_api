@@ -16,6 +16,9 @@ from drf_api.permissions import IsOwnerOrReadOnly
 
 
 class PostList(generics.ListCreateAPIView):
+    """
+    A class view for the Posts list
+    """
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
@@ -42,10 +45,17 @@ class PostList(generics.ListCreateAPIView):
     ]
 
     def perform_create(self, serializer):
+        """
+        Assign the post owner to the logged in user
+        """
         serializer.save(owner=self.request.user)
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    A class view for the Post details
+    Users can retrieve, update or delete a post
+    """
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(

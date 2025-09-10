@@ -14,6 +14,9 @@ from drf_api.permissions import IsOwnerOrReadOnly
 
 
 class LikeList(generics.ListCreateAPIView):
+    """
+    A class for the like list view
+    """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = LikeSerializer
     queryset = Like.objects.all()
@@ -23,6 +26,10 @@ class LikeList(generics.ListCreateAPIView):
 
 
 class LikeDetail(generics.RetrieveDestroyAPIView):
+    """
+    A class for the like details
+    Users can retrieve a like or unlike a post
+    """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = LikeSerializer
     queryset = Like.objects.all()

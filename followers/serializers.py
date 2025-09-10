@@ -11,6 +11,9 @@ from .models import Follower
 
 
 class FollowerSerializer(serializers.ModelSerializer):
+    """"
+    A class for the follower serializer
+    """
     owner = serializers.ReadOnlyField(source="owner.username")
     followed_name = serializers.ReadOnlyField(source="followed.username")
 
@@ -19,6 +22,9 @@ class FollowerSerializer(serializers.ModelSerializer):
         fields = ["id", "owner", "created_at", "followed", "followed_name"]
 
     def create(self, validated_data):
+        """
+        Handles duplication errors
+        """
         try:
             return super().create(validated_data)
         except IntegrityError:

@@ -14,6 +14,9 @@ from drf_api.permissions import IsOwnerOrReadOnly
 
 
 class FollowerList(generics.ListCreateAPIView):
+    """
+    A class for the follower list view
+    """
     serializer_class = FollowerSerializer
     queryset = Follower.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -23,6 +26,10 @@ class FollowerList(generics.ListCreateAPIView):
 
 
 class FollowerDetail(generics.RetrieveDestroyAPIView):
+    """
+    A class for Follower details
+    User can retrieve a follower or unfollow someone
+    """
     serializer_class = FollowerSerializer
     queryset = Follower.objects.all()
     permission_classes = [IsOwnerOrReadOnly]

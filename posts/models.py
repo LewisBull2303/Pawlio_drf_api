@@ -8,6 +8,9 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
+    """
+    A class for the post model
+    """
     category_choices = [
         ("Dog", "Dog"),
         ("Puppy", "Puppy"),

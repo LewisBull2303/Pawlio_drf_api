@@ -9,6 +9,11 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
+    """
+    A class for the user profile model
+    Each user has one profile, linked via a one-to-one relationship.
+    Auto creates via a signal when a new user is created.
+    """
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
