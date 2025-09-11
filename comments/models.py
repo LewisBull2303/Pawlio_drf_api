@@ -21,7 +21,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    description = models.TextField()
+    description = models.TextField(max_length=200)
 
     class Meta:
         ordering = ["-created_on"]
