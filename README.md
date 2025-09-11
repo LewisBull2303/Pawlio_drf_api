@@ -121,6 +121,7 @@ Example output if there are issues with a file:
 <img width="864" height="85" alt="image" src="https://github.com/user-attachments/assets/5a33357c-d34a-4b78-ac57-28bb86590996" />
 
 There is one error for the settings.py, however this is unfixable due to the name of the django variable being too long of a name natually, images below:
+
 <img width="839" height="88" alt="image" src="https://github.com/user-attachments/assets/7e3b33d6-6703-437a-b364-75f6f3cf5b55" />
 <img width="952" height="98" alt="image" src="https://github.com/user-attachments/assets/72887cb0-4736-402e-86a7-2a9b56402df7" />
 
