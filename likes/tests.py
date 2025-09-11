@@ -35,13 +35,16 @@ class LikeDetailViewTests(APITestCase):
         Lewis = User.objects.create_user(username="Lewis", password="password")
         dave = User.objects.create_user(username="dave", password="password")
         Post.objects.create(
-            owner=Lewis, title="post title", description="test", category="Polish"
+            owner=Lewis, title="post title",
+            description="test", category="Polish"
         )
         Post.objects.create(
-            owner=dave, title="post title2", description="test2", category="Spanish"
+            owner=dave, title="post title2",
+            description="test2", category="Spanish"
         )
         Post.objects.create(
-            owner=dave, title="post title3", description="test3", category="Greek"
+            owner=dave, title="post title3",
+            description="test3", category="Greek"
         )
         Like.objects.create(owner=Lewis, post_id=2)  # 'id':1
         Like.objects.create(owner=dave, post_id=1)  # 'id':2
