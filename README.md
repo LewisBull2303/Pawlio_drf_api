@@ -93,6 +93,22 @@ The below models were created to represent the database model structure of the a
 
 The library Pycodestlye was used to validate all of the python code as the PEP8 Online validator no longer exists, All code passes with no errors or warnings:
 
+<details>
+ <summary>Example Output</summary>
+
+Example output if there are issues with a file:
+<img width="798" height="241" alt="image" src="https://github.com/user-attachments/assets/4548cfb4-7f29-434a-a461-c077d5675f2e" />
+
+</details>
+
+<details>
+ <summary>Comments</summary>
+
+Example output if there are issues with a file:
+<img width="798" height="241" alt="image" src="https://github.com/user-attachments/assets/4548cfb4-7f29-434a-a461-c077d5675f2e" />
+
+</details>
+
 ## Testing 
 
 The Following tests were carriewd out on the backend app:
