@@ -43,7 +43,8 @@ class PostDetailViewTests(APITestCase):
             owner=adam, title="a title", description="adams description"
         )
         Post.objects.create(
-            owner=brian, title="another title", description="brians description"
+            owner=brian, title="another title",
+            description="brians description"
         )
 
     def test_can_retrieve_post_using_valid_id(self):
