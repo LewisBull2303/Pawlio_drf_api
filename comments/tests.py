@@ -35,13 +35,15 @@ class CommentDetailViewTests(APITestCase):
         Lewis = User.objects.create_user(username="Lewis", password="password")
         dave = User.objects.create_user(username="dave", password="password")
         Post.objects.create(
-            owner=Lewis, title="post title", description="test", category="Polish"
+            owner=Lewis, title="post title", description="test",
+            category="Polish"
         )
         Post.objects.create(
-            owner=dave, title="post title2", description="test2", category="Spanish"
+            owner=dave, title="post title2", description="test2",
+            category="Spanish"
         )
-        Comment.objects.create(owner=Lewis, post_id=1, description="comment one")
-        Comment.objects.create(owner=dave, post_id=2, description="comment two")
+        Comment.objects.create(owner=Lewis, post_id=1, description="comment 1")
+        Comment.objects.create(owner=dave, post_id=2, description="comment 2")
 
     def test_logged_in_user_can_create_comment(self):
         """
@@ -78,7 +80,7 @@ class CommentDetailViewTests(APITestCase):
         Test if user can update a comment they created
         """
         self.client.login(username="Lewis", password="password")
-        response = self.client.put("/comments/1/", {"description": "updated comment"})
+        response = self.client.put("/comments/1/", {"description": "updated"})
         comment = Comment.objects.filter(pk=1).first()
         self.assertEqual(comment.description, "updated comment")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -88,7 +90,7 @@ class CommentDetailViewTests(APITestCase):
         Test if user can update other users' comment
         """
         self.client.login(username="Lewis", password="password")
-        response = self.client.put("/comments/2/", {"description": "updated comment"})
+        response = self.client.put("/comments/2/", {"description": "updated"})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_user_can_delete_their_own_comment(self):
