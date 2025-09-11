@@ -19,7 +19,10 @@ class Profile(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=50, blank=True)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to="images/", default="Default_pfp_b2wp2a")
+    image = models.ImageField(
+        upload_to="images/",
+        default="Default_pfp_b2wp2a"
+    )
 
     class Meta:
         ordering = ["-created_on"]
