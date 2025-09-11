@@ -18,8 +18,12 @@ class SaveListViewTests(APITestCase):
         Automatically runs before each test.
         Creates two users and one post.
         """
-        self.lewis = User.objects.create_user(username="Lewis", password="password")
-        self.dave = User.objects.create_user(username="dave", password="password")
+        self.lewis = User.objects.create_user(
+            username="Lewis", password="password"
+        )
+        self.dave = User.objects.create_user(
+            username="dave", password="password"
+        )
 
         self.post = Post.objects.create(
             owner=self.lewis, title="Test Post", description="Test description"
@@ -55,19 +59,27 @@ class SaveListViewTests(APITestCase):
         """
         Test if possible to list saves
         """
-        Save.objects.create(owner=self.lewis, post=self.post)
+        Save.objects.create(
+            owner=self.lewis, post=self.post
+        )
         response = self.client.get("/saves/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["count"], 1)
-        self.assertEqual(len(response.data["results"]), 1) 
+        self.assertEqual(len(response.data["results"]), 1)
+
 
 class SaveDetailViewTests(APITestCase):
+
     def setUp(self):
         """
         Creates two users, one post and two saves
         """
-        self.lewis = User.objects.create_user(username="Lewis", password="password")
-        self.dave = User.objects.create_user(username="dave", password="password")
+        self.lewis = User.objects.create_user(
+            username="Lewis", password="password"
+        )
+        self.dave = User.objects.create_user(
+            username="dave", password="password"
+        )
 
         self.post = Post.objects.create(
             owner=self.lewis, title="Test Post", description="Test description"
