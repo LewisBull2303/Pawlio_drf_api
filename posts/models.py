@@ -33,7 +33,9 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True, max_length=1000)
-    category = models.CharField(max_length=50, choices=category_choices, default="Dog")
+    category = models.CharField(
+        max_length=50, choices=category_choices, default="Dog"
+    )
     image = models.ImageField(
         upload_to="images/", default="default_post_wbup9c", blank=True
     )
